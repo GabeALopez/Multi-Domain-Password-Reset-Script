@@ -13,6 +13,8 @@
 # Reads CSV file
 $UserInfo = Import-Csv -Path .\user-information.csv
 
+#function
+
 Function Show-Menu($strUserInfo) {
 
     Write-Host "====================================== MENU ======================================" -ForegroundColor Green
@@ -23,7 +25,7 @@ Function Show-Menu($strUserInfo) {
     Write-Host "Press 'q' to quit."
 }
 
-# Function has two inputs. One to display Lass Password set, the other to reset the password.
+# Function has two inputs. One to display Last Password set, the other to reset the password.
 Function Set-ThePassword([string]$strUserName, [string]$strFQDNDomain) {
 
     Clear-Host
@@ -34,7 +36,7 @@ Function Set-ThePassword([string]$strUserName, [string]$strFQDNDomain) {
     $Credential = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $strUserName, $CurrentPassword
     Write-Host ""
 
-    # Code ask user to display last password set.
+    # Code asks user to display last password set.
     Write-Host "Would you like to display the last time you changed the password for the" $strUserName" user?"
     $Key = Read-Host "Type 'y' and hit 'enter' to continue"
     If ($key -eq 'y') {
@@ -70,7 +72,7 @@ Function Set-ThePassword([string]$strUserName, [string]$strFQDNDomain) {
     $NewPassword = ""
 }
 
-# Function collects user info from CSV file then passes to next fuction
+# Function collects user info from CSV file then passes to next function
 Function Set-UserPassword($strUserInfo, $strMenuInput) {
 
     $UserName = $strUserInfo.UserName[$strMenuInput - 1]
