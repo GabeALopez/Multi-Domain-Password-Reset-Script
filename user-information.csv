@@ -1,0 +1,4 @@
+Id,Domains,UserName,FQDNDomain
+1,foo,admin,foo.bar.org
+2,foobar,admin,bar.foo.bar.org
+3,barfoo,admin,foo.bar2
